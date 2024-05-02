@@ -1,0 +1,30 @@
+<section class="container" style="background-color: #f4f5f7af;">
+  <div class="row">
+    <form>
+      <p>Registro de usuario</p>
+<p class="text-muted">{{loginUser}}</p>
+      <div data-mdb-input-init class="form-outline mb-4">
+        <input type="email" id="form2Example11" class="form-control"
+          placeholder="email address" [(ngModel)]="mail" name="txtmail"/>
+        <label class="form-label" for="form2Example11">Email</label>
+      </div>
+
+      <div data-mdb-input-init class="form-outline mb-4">
+        <input type="password" id="txtclave" class="form-control" [(ngModel)]="clave" name="txtclave" />
+        <label class="form-label" for="txtclave">Password</label>
+      </div>
+
+      <div class="text-center pt-1 mb-5 pb-1">
+        <button data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="button"(click)="mostrarClave($event)">Mostrar clave </button>
+      </div>
+
+      <div class="d-flex align-items-center justify-content-center pb-4">
+    
+        <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-danger"(click)="registrar()">Registrarse</button>
+      </div>
+
+    </form>
+
+  </div>
+
+</section>
