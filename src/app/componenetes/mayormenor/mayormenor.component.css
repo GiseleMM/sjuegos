@@ -1,0 +1,49 @@
+.ofuscar{
+    filter: blur(20px) hue-rotate(90deg);
+
+  
+}
+.mayor{
+    margin: 2px;
+    padding: 2px;
+width: 80px;
+height: 100px;
+border-radius: 5px;
+
+background-image: url("/../assets/cartas/mayor.png");
+background-size: cover;
+background-position: center;
+
+}
+.menor
+{
+    padding: 2px;
+    margin: 2px;
+
+    width: 80px;
+height: 100px;
+border-radius: 5px;
+background-image: url("/../assets/cartas/menor.png");
+background-size: cover;
+background-position: center;
+
+
+}
+.revelar
+{
+    filter:blur(0px);
+}
+button:disabled{
+    opacity: 0.3;
+}
+.carta{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+.opcion,.info{
+    margin: 1rem;
+    display: flex;
+justify-content: center;
+}

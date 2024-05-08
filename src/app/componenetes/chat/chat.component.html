@@ -1,0 +1,34 @@
+
+<div class="card text-center cardChat">
+    <div class="card-header">
+        CHAT 
+    </div>
+    <div id="contenedor-mensaje" class="card-body contenedor-mensaje h-100">
+
+
+        @for(m of mensajes;track $index)
+        {
+        <!-- <p>{{usuarioLogeado.uid}}</p> -->
+        
+        <!-- <p>{{m.uid}}</p> -->
+        <!-- [ngClass]="{'my_class': step === 'step1', 'my_class2' : step === 'step2' }" -->
+
+        <p [class.enviado]="emailUser==m.mail" [class.recibido]="emailUser!=m.mail" class="msj"><span class="fecha">{{m.fecha}} </span><span class="email">{{m.mail}}:</span>{{m.texto}}</p>
+        }
+
+
+    </div>
+
+    <form class="card-footer text-muted" (ngSubmit)="enviarMensaje()">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Ingrese msj" aria-label="ingrese mensaje"
+                aria-describedby="basic-addon2" [(ngModel)]="nuevoMensaje" name="txt-mensaje">
+
+            <div class="input-group-append" (click)="enviarMensaje()">
+                <span class="input-group-text icono-mensaje" id="basic-addon2"><i class="bi bi-send"></i></span>
+            </div>
+        </div>
+    </form>
+
+</div>
+

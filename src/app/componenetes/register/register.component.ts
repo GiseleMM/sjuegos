@@ -3,6 +3,7 @@ import { Auth,User,createUserWithEmailAndPassword,sendEmailVerification } from '
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../servicios/auth.service';
+import { CloudService } from '../../servicios/cloud.service';
 
 @Component({
   selector: 'app-register',
@@ -16,7 +17,7 @@ export class RegisterComponent {
   mail:string="";
   clave:string="";
   loginUser:string="";
-  constructor(private auth:AuthService,private router:Router){}
+  constructor(private auth:AuthService,private router:Router,private cloud:CloudService){}
 
   registrar()
   {
@@ -35,7 +36,7 @@ export class RegisterComponent {
               
               if(this.loginUser!="")
                 {
-                  
+                  this.cloud.addRegistro(this.mail);
                     this.router.navigateByUrl("/home");
                 
                 };

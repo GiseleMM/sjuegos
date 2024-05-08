@@ -1,16 +1,9 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
 
 
 <main class="main">
   <div class="content">
-    <div class="left-side">
+    <div class="left-side w-75 h-100">
       <!-- <h1>Hello, {{ title }}</h1>
       <p>Congratulations! Your app is running. 🎉</p> -->
       <router-outlet />
@@ -26,7 +19,8 @@
         {title:'Quién soy',link:'aboutme'},
 
         {title:'Login',link:'login'},
-        {title:'Register',link:'register'}
+        {title:'Register',link:'register'},
+        {title:'Chat',link:'chat'}
         ]; track item.title) {
 
         @if(currentUserMail!=null)
@@ -34,7 +28,7 @@
         @if(item.title=="Login")
         {
         <button class="pill" [routerLink]="item.link">
-          <span>LogOut {{currentUserMail}}</span>
+          <span>LogOut: {{currentUserMail}}</span>
           <svg xmlns="http://www.w3.org/2000/svg" height="14" viewBox="0 -960 960 960" width="14" fill="currentColor">
             <path
               d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z" />
@@ -43,18 +37,24 @@
 
         }
         @else if (item.title!="Register") {
-        <button class="pill" [routerLink]="item.link">
+
+        @if(item.title=="Chat")
+        {
+          <app-chatroom></app-chatroom>
+
+
+        <!-- <button class="pill" (click)="mostrarChat()"> 
           <span>{{ item.title }}</span>
           <svg xmlns="http://www.w3.org/2000/svg" height="14" viewBox="0 -960 960 960" width="14" fill="currentColor">
             <path
               d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z" />
           </svg>
-        </button>
+        </button> -->
+        <!-- @if(chat)
+{
+<app-chat></app-chat>
 
-
-        }
-
-
+} -->
 
         }
         @else {
@@ -66,6 +66,30 @@
           </svg>
         </button>
 
+        }
+
+
+
+        }
+
+
+
+        }
+        @else {
+
+
+        @if(item.title!="Chat")
+        {
+
+
+        <button class="pill" [routerLink]="item.link">
+          <span>{{ item.title }}</span>
+          <svg xmlns="http://www.w3.org/2000/svg" height="14" viewBox="0 -960 960 960" width="14" fill="currentColor">
+            <path
+              d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z" />
+          </svg>
+        </button>
+        }
 
         }
 
@@ -97,11 +121,3 @@
     </div>
   </div>
 </main>
-
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->

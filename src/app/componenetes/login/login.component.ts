@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../servicios/auth.service';
 import { Router } from '@angular/router';
+import { CloudService } from '../../servicios/cloud.service';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,7 @@ export class LoginComponent implements OnInit {
   loginUser: string | null = null;
   currentUser:string|null=null;
   // constructor(public auth:Auth){}
-  constructor(private authservice: AuthService, private router: Router) { }
+  constructor(private authservice: AuthService, private router: Router,private cloud:CloudService) { }
 
   ngOnInit(): void {
     this.currentUser = this.authservice.getCurretUser()?.email ?? null;
@@ -31,6 +32,7 @@ export class LoginComponent implements OnInit {
     this.authservice.iniciarSesion(this.mail, this.clave)
     .then(res => {
       this.loginUser = res.user.email ?? "";
+      this.cloud.addLogin(this.mail);
       this.router.navigateByUrl("home");
     })
     .catch(e => this.loginUser = e.code);
@@ -65,9 +67,6 @@ export class LoginComponent implements OnInit {
     let usuarios=[
     {mail:"gulmofotre@gufum.com",
       clave:"123456Leal"
-    },
-    {mail:"martapifyi@gufum.com",
-      clave:"123456Test"
     }
     ]
     this.mail=usuarios[0].mail;

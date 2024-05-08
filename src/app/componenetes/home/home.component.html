@@ -1,8 +1,23 @@
-<p>home works!</p>
-<ul>
-    <li>ahorcado</li>
-    <li>mayor o menor</li>
-    <li>Preguntados</li>
-    <li>Mi juego</li>
 
-</ul>
+    <div class="juegos mh-100" style="background-color: #f4f5f7af; min-height: 50vh;" >
+
+      <ul class="nav justify-content-center">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="ahorcado" [class.disabled]="desactivada">ahorcado</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="mayormenor" [class.disabled]="desactivada" >mayor menor</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" aria-disabled="true" routerLink="preguntados">preguntados</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link disabled "routerLink="***" >mi juego</a>
+              </li>
+          </ul>
+          
+          <router-outlet />
+    
+    </div>
+    

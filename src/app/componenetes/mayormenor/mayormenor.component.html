@@ -1,0 +1,18 @@
+<p>Tienes 10 oportunidades de sumar puntos y solo 3 errores</p>
+<div class="contenedor">
+    <div class="carta">
+        <img src="/../assets/cartas/{{carta}}.png" alt="carta" width="200px" id="cartaver">
+        <img src="/../assets/cartas/{{cartaOculta}}.png" alt="carta" width="200px" class="ofuscar" id="cartaocultar">
+
+    </div>
+    <div class="opcion">
+    <button class="mayor" (click)="mayor()" [disabled]="!jugar"></button>
+    <button class="menor"(click)="menor()" [disabled]="!jugar"></button>
+    
+    </div>
+    <div class="info">
+        
+    <h4>Puntaje: {{puntos}}</h4>
+    <h4> {{mensaje}}</h4>
+    </div>
+</div>
