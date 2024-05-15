@@ -12,7 +12,7 @@
 }
 .teclado{
     width: 100%;
-    padding: 2rem;
+    padding: 1rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -26,4 +26,11 @@
 }
 .teclado button:active{
     transform: scale(.9);
+}
+.info{
+    display: flex;
+    flex-direction: column;
+    gap:0.5rem;
+    align-items: center;
+    text-align: center;
 }

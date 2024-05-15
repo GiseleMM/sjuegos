@@ -1,27 +1,25 @@
-<p>ahorcado works!</p>
 <div class="contenedor">
-    
-<div class="palabra">
- palabra :{{palabra}}
- mascara:
- 
- @for (m of (mascara.split('')); track $index) {
-<span> {{m}} </span>
- }
-</div>
-<div class="imagen d-flex justify-content-center">
-<img src="/../assets/ahorcado/{{intentos+1}}.png" alt="" srcset="" width="80%">
-</div>
-<div class="teclado">
-    @for(t of teclas;track $index)
-    {
-        <button (click)="teclaClick(t)" [disabled]="desabilitado">{{t}}</button>
-    }
-</div>
-<div>
-    <h4>puntaje: {{puntaje}} </h4>
-<h4>ntentos:{{intentos}}</h4>
 
-<h2>{{mensaje}} </h2>
-</div>
+    <div class="palabra">
+        palabra :{{palabra}}
+        mascara:
+
+        @for (m of (mascara.split('')); track $index) {
+        <span> {{m}} </span>
+        }
+    </div>
+    <div class="imagen d-flex justify-content-center">
+        <img src="/../assets/ahorcado/{{intentos+1}}.png" alt="" srcset="" width="80%" class="rounded">
+    </div>
+    <div class="teclado">
+        @for(t of teclas;track $index)
+        {
+        <button (click)="teclaClick(t)" [disabled]="desabilitado">{{t}}</button>
+        }
+    </div>
+    <div class="info">
+        <h4>puntaje: {{puntaje}} </h4>
+        <h4>Intentos:{{intentos}}</h4>
+        <h4>{{mensaje}} </h4>
+    </div>
 </div>

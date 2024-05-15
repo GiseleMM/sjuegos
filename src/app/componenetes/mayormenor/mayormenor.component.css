@@ -42,8 +42,15 @@ button:disabled{
     gap: 1rem;
     justify-content: center;
 }
-.opcion,.info{
+.opcion{
     margin: 1rem;
     display: flex;
 justify-content: center;
+}
+.info{
+    display: flex;
+    flex-direction: column;
+    gap:.0.5rem;
+    align-items: center;
+    text-align: center;
 }

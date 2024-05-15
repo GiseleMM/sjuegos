@@ -42,6 +42,12 @@ export class ChatComponent implements OnInit, OnDestroy {
     this.subcMensaje=this.cloudservice.getMensajes().subscribe(msj => {
       this.mensajes = [];
       this.mensajes = msj ?? [];
+      this.mensajes.sort((a:any,b:any)=>{
+        let fechaA:any=this.convertirStringAFecha(a.fecha);
+        let fechaB:any=this.convertirStringAFecha(b.fecha);
+        return fechaA-fechaB;
+
+      })
       console.log(this.mensajes)
 
     })
@@ -91,10 +97,19 @@ export class ChatComponent implements OnInit, OnDestroy {
     }
   }
 
-  private ordernarMensajes(mensajes: any[]) {
+  private convertirStringAFecha(fechaString: string): Date {
+    // Dividir el string en partes
+    let partes: string[] = fechaString.split(/[\/ :]/);
 
+    // Crear el objeto Date
+    // Las partes[1] - 1 es porque los meses en JavaScript son 0-indexados
+    let fecha = new Date(Number(partes[2]), Number(partes[1]) - 1, Number(partes[0]), Number(partes[3]), Number(partes[4]), Number(partes[5]));
 
+    return fecha;
   }
+
+
+  
   private getFecha(): string {
 
 

@@ -1,19 +1,19 @@
 
-    <div class="juegos mh-100" style="background-color: #f4f5f7af; min-height: 50vh;" >
+    <div class="mh-100 pt-2" style="background-color: #f4f5f7af; min-height: 75vh;" >
 
-      <ul class="nav justify-content-center">
-            <li class="nav-item">
+      <ul class="nav justify-content-center pill-group">
+            <li class="nav-item pill">
               <a class="nav-link" routerLink="ahorcado" [class.disabled]="desactivada">ahorcado</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item pill">
               <a class="nav-link" routerLink="mayormenor" [class.disabled]="desactivada" >mayor menor</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" aria-disabled="true" routerLink="preguntados">preguntados</a>
+            <li class="nav-item pill">
+              <a class="nav-link"  routerLink="quizz"[class.disabled]="desactivada">preguntados</a>
             </li>
             
-            <li class="nav-item">
-                <a class="nav-link disabled "routerLink="***" >mi juego</a>
+            <li class="nav-item pill">
+                <a class="nav-link disabled "routerLink="mijuego" [class.disabled]="desactivada">Diferencias </a>
               </li>
           </ul>
           

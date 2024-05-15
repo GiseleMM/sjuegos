@@ -43,12 +43,15 @@ sub!:Subscription;
     // alert(letra);
     console.log(this.palabra);
     console.log(letra.toLowerCase());
+    this.quitarDeTeclado(letra);
     if(this.palabra.includes(letra.toLowerCase()))
       {
 
         console.log("contine letra "+letra);
         this.revelar(letra.toLocaleLowerCase());
+     
           this.puntaje+=100;
+          this.mensaje="Ganaste 100 puntos🤗🎉";
           if(this.palabra.trim()==this.mascara.trim())
             {
               this.mensaje="Felicidades ganaste";
@@ -59,10 +62,12 @@ sub!:Subscription;
       }else
       {
         this.intentos++;
+        
+        this.mensaje="NO esta 😥😔";
         if (this.intentos == 7) 
           {
             // this.reiniciar();
-            this.mensaje = "Game Over";
+            this.mensaje = "Game Over ☠";
 
             this.desabilitado=true;
             this.mascara=this.palabra;//para q mueste la palabra
@@ -81,6 +86,10 @@ sub!:Subscription;
       console.log(this.mascara);
     }
 
+  }
+  private quitarDeTeclado(letra:string)
+  {
+    this.teclas=this.teclas.filter(l=>l.toLowerCase().trim()!=letra.toLocaleLowerCase().trim());
   }
   private revelar(letra:string)
   {
@@ -110,6 +119,8 @@ sub!:Subscription;
     this.mascara=buffer;
   }
   private reiniciar() {
+    this.teclas = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'Ñ', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+
     this.palabra = "";
     this.mascara="";
     this.intentos=0;

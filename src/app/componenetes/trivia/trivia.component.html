@@ -1,0 +1,26 @@
+<div class="contenerdor-trivia">
+    <h4>{{currentQuizz?currentQuizz.question:""}}</h4>
+<form class="radiogroup">
+    @for (item of currentOptions?currentOptions:[]; track $index) {
+
+        <div class="wrapper">
+            <input class="state" type="radio" name="app" id="{{$index}}" value="{{$index}}" (change)="onChange($event)">
+            <label class="label" for="{{$index}}">
+              <div class="indicator"></div>
+              <span class="text">{{item}}</span>
+            </label>
+          </div>
+
+    }
+   
+</form>
+  <!-- <button (click)="enviar()" class="w-100">Enviar</button> -->
+  <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-danger w-100 p-1"(click)="enviar()"> Enviar</button>
+
+  <div class="info">
+    <p>Puntaje: {{puntaje}}</p>
+    <p>{{mensaje}}</p>
+    <p [ngClass]="ocultarRespuesta ? 'ocultar' : ''"> Correct Answers:{{currentQuizz?currentQuizz.correctAnswers:""}}</p>
+  </div>
+</div>
+  

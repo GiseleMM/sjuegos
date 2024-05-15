@@ -1,0 +1,59 @@
+.juego{
+    margin: 0 auto;
+  }
+  .reglas{
+    font-size: small;
+    background-color: rgba(250, 10, 170, 0.3);
+    border-radius: 10px;
+    padding: 2px;
+  
+  }
+  .reglas p{
+    margin:0px;
+    
+
+
+  }
+   button{
+    color:rgba(250, 10, 170, 0.3);
+    border-color: rgba(250, 10, 170, 0.3);
+    background-color: transparent;
+    border-radius: 10px;
+    align-self: center;
+  }
+  button:hover{
+    filter: drop-shadow(0 0 0.75rem crimson);
+  }
+  .imagenes{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  }
+  .imagenes h5{
+    text-align: center;
+  }
+  .ofuscar{
+
+    filter: invert(1) blur(10px);
+
+  }
+  .revelar{
+  filter:none;
+
+
+  }
+  .info{
+    display: flex;
+    justify-content: space-evenly;
+    gap:1rem;
+    margin: 2px;
+    padding: 0.2px;
+  }
+  .gif {
+display: block;
+
+  }
+  .mensaje{
+    display: flex;
+    justify-content: center;
+  }

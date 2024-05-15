@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Firestore, addDoc, collection, collectionData,query,orderBy } from '@angular/fire/firestore';
+import { Firestore, addDoc, collection, collectionData, query, orderBy } from '@angular/fire/firestore';
+import { Observable, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -18,14 +19,14 @@ export class CloudService {
     console.log(user);
     let col = collection(this.firestore, "registros");
     addDoc(col, user)
-//     .then(r=>{
-//       console.log("true");
-//       return true;
-//     }).catch(e=>{
-//       console.log("false");
-// return false;
-//     }
-//   );
+    //     .then(r=>{
+    //       console.log("true");
+    //       return true;
+    //     }).catch(e=>{
+    //       console.log("false");
+    // return false;
+    //     }
+    //   );
 
   }
   addLogin(mail: string) {
@@ -61,23 +62,23 @@ export class CloudService {
     let fechaFormateada = `${dia}/${mes}/${anio} ${hora}:${minuto}:${segundos}`;
     return fechaFormateada;
   }
-  addMensaje(uid:string,mail:string,texto:string)
-  {
+  addMensaje(uid: string, mail: string, texto: string) {
     let mensaje = {
       uid: uid,
-      mail:mail,
-      texto:texto,
+      mail: mail,
+      texto: texto,
       fecha: this.getFecha()
     }
     let col = collection(this.firestore, "mensajes");
     addDoc(col, mensaje);
   }
-  getMensajes()
-  {
-    let col=collection(this.firestore,"mensajes");
+  getMensajes(): Observable<any> {
+    let col = collection(this.firestore, "mensajes");
     //fijarse
-    const q =  query(col, orderBy("fecha")); 
-    return collectionData(q);
+    // const q =  query(col, orderBy("fecha")); 
+    return collectionData(col);
   }
-  
+
+
+
 }

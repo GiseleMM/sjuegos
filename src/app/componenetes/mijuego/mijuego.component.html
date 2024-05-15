@@ -1,0 +1,56 @@
+<div class="container juego">
+
+    <div class="reglas">
+        <p>
+            Reglas del Juego:
+        </p>
+        <p>
+            Objetivo: Debes encontrar todas las diferencias entre dos imágenes lo más rápido posible.
+        </p>
+        <p>
+            Tiempo Límite: Tienes 10 segundos para encontrar todas las diferencias.
+        </p>
+        <!-- <p> DIFERENCIAS: {{tarjetaActual.cords.length}}</p> -->
+     
+    </div>
+    <!-- <p>{{tarjetaActual.original}}</p>
+    <p>{{tarjetaActual.nombre}}</p>
+    <p>{{tarjetaActual.cords}}</p> -->
+
+    <div class="info">
+        <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-danger"(click)="iniciar()"[disabled]="jugando"> JUGAR</button>
+        <!-- <button (click)="iniciar()" [disabled]="jugando"> JUGAR</button> -->
+        <h5>{{time-1}}</h5>
+        <h5>Puntaje: {{puntaje}}</h5>
+        <h5>Diferencias:  {{tarjetaActual.cords.length}}</h5>
+        
+    </div>
+  <div class="mensaje">
+    <p>{{mensaje}}</p>
+    <img src="/assets/diferencias/hearts.gif" alt="gano" [ngClass]="!gif ? 'd-none' : 'gif'" >
+  </div>
+
+    <div class="imagenes">
+        <div class="original">
+            <h5>Original</h5>
+            <img src="/../assets/diferencias/{{tarjetaActual.original}}" alt="original"
+                [ngClass]="revelar ? 'revelar' : 'ofuscar'">
+        </div>
+        <div class="diferente">
+
+            <h5 >
+             👀👁🔍
+            </h5>
+            <img src="/../assets/diferencias/{{tarjetaActual.nombre}}" alt="" usemap="#image-map"
+                [ngClass]="revelar ? 'revelar' : 'ofuscar'">
+        </div>
+
+    </div>
+    <map name="image-map">
+        @for (item of tarjetaActual.cords; track $index) {
+
+        <area target="" alt="" title="" coords="{{item}}" shape="rect" (click)="onClikDifente($index)">
+        }
+    </map>
+
+</div>
