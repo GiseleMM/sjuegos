@@ -95,10 +95,10 @@ transform: scale(.9);
     overflow: scroll;
     padding: 0.3rem;
 }
-.contenedor-mensaje::-webkit-scrollbar
+/* .contenedor-mensaje::-webkit-scrollbar
 {
     display:none;
-}
+} */
 .msj{
    color: white;
 }
